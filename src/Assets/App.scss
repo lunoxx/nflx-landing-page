@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// body {
+
+//   background-image: url('./Images/bg.webp');
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+
+//   background-attachment: fixed;
+// }
+
+html {
+  scroll-behavior: smooth;
+  background-color: black;
+}
+
+#root {
+
+  background: url('./Images/bg.webp') no-repeat center center;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  display: flex;
+  min-height: 100dvh;
+  height: 100dvh;
+  position: relative;
+
+  overflow: hidden;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:700,900');
+
+@function makelongshadow($length,$angle) {
+  $val: 0px 0px transparent;
+  @for $i from 1 through $length {
+    $val: #{$val}, #{$i}px #{$i*$angle}px #aaaaaa2c;
+  }
+  @return $val;
+}
+
+.hero-logo {
+  text-align: center;
+  font-family: 'Roboto';
+  font-weight: 700;
+  animation: netflix_style 3.5s;
+  animation-fill-mode: forwards;
+  outline: none;
+  white-space: nowrap;
+  user-select: none;
+  line-height: 1.3;
+}
+
+@keyframes netflix_style {
+  0% {
+    text-shadow: makelongshadow(100,1);
+    color:#f3f3f3;
+    transform: scale(1.5, 1.5);
+  }
+  10% {
+    text-shadow: makelongshadow(100,1.5);
+    color:#f3f3f3;
+    transform: scale(1.5, 1.5);
+  }
+  15% {
+     color:#f3f3f3;
+  }
+  20% {    
+    color:#e90418;
+    text-shadow: none;
+    transform: scale(1.1, 1.1);
+  }
+  75% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;    
+    color:#e90418;
+    transform: scale(0.85, 0.9);
+  }
+  
+  100% {
+    opacity: 1;
+    color:#e90418;
+  }
+}
